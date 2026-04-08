@@ -58,13 +58,54 @@
   }
 </style>
 <style>
+.project-hero-grid {
+  align-items: start !important;
+  height: auto !important;
+}
+
+.project-left-column {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 120px !important; /* Marge pour ne pas coller sous la navbar */
+  height: fit-content !important;
+  overflow: visible !important;
+  align-self: start !important;
+  z-index: 10 !important; /* Pour que le texte reste cliquable et visible */
+}
+
 .project-right-column {
   scrollbar-width: none;
   -ms-overflow-style: none;
+  overflow: visible !important;
+  position: relative !important;
+  z-index: 20 !important; /* Passe au-dessus de la navbar */
 }
 
 .project-right-column::-webkit-scrollbar {
   display: none;
+}
+
+/* Fixer la navbar au scroll de la page mais la faire passer DERRIERE les images */
+.navbar-project-page {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 5 !important;
+}
+
+/* Aligne le haut de la navbar exactement comme sur Info / Contact */
+.navbar_inner {
+  padding-top: 1rem !important;
+}
+
+/* Décalage optique du logo pour corriger l'alignement */
+.navbar_brand {
+  margin-left: 3px !important;
+}
+
+/* WORK nav link — décalage gauche pour compenser l'espace des crochets invisibles */
+.nav-link-work-info {
+  transform: translateX(-4px) !important;
 }
 </style>
 
