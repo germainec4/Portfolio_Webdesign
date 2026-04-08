@@ -125,12 +125,14 @@
 
   <!-- Styles de mise en page repris à l'identique de info.html -->
   <style>
+    /* Autorise le défilement vertical pour le responsive */
     body {
-      overflow-y: hidden !important;
+      overflow-y: auto !important;
     }
 
+    /* Layout flexible : min-height au lieu de height fixe */
     .main-wrapper {
-      height: 100vh !important;
+      min-height: 100vh !important;
       display: flex !important;
       flex-direction: column !important;
       justify-content: flex-start !important;
@@ -146,6 +148,12 @@
       letter-spacing: 0.1rem !important;
     }
 
+    .navbar_inner .nav_link {
+      justify-self: start !important;
+      max-width: 100% !important;
+      white-space: nowrap !important;
+    }
+
     .padding-hero.padding-global {
       padding-top: 1rem !important;
       padding-bottom: 2rem !important;
@@ -156,8 +164,9 @@
     }
 
     .hero_title-dynamic {
-      font-size: 6.2rem !important;
+      font-size: clamp(4.8rem, 8vw, 6.2rem) !important;
       margin-top: 10px !important;
+      line-height: 0.9 !important;
     }
 
     .hero_info-wrap {
@@ -219,7 +228,7 @@
       width: 16px !important;
       height: 16px !important;
       margin-left: 6px !important;
-      top: 1px !important;
+      top: -1px !important;
     }
 
     .info_link-item:hover .contact-icon-svg {
@@ -232,7 +241,7 @@
       display: flex;
       flex-direction: column;
       gap: 16px;
-      margin-top: 35px;
+      margin-top: 39px;
     }
 
     .contact-form-field {
@@ -247,6 +256,7 @@
       text-transform: uppercase;
       letter-spacing: 0.08rem;
       color: #555;
+      padding-left: 2px;
     }
 
     .contact-form-input,
@@ -290,13 +300,13 @@
       border: 1px solid #fff;
       color: #fff;
       font-family: 'Fragment Mono', monospace;
-      font-size: 0.7rem;
+      font-size: 0.77rem;
       text-transform: uppercase;
       letter-spacing: 0.09rem;
-      padding: 9px 22px;
+      padding: 10px 24px;
       cursor: pointer;
       transition: background 0.12s ease, color 0.12s ease, border-color 0.12s ease;
-      margin-top: 2px;
+      margin-top: 4px;
     }
 
     .contact-form-submit:hover {
@@ -324,7 +334,10 @@
     }
 
     /* WORK nav link — décalage gauche pour compenser l'espace des crochets invisibles */
-    .nav-link-work-info { transform: translateX(-4px) !important; }
+    .nav-link-work-info { transform: none !important; }
+
+    .nav-link-work-info .red-crochet-infos { display: none !important; }
+
   </style>
 </head>
 
@@ -590,6 +603,14 @@
       });
     });
   </script>
+  <!-- Navigation Mobile (Bottom Nav) -->
+  <nav class="mobile-nav">
+    <a href="index.html" class="mobile-nav_link">WORK</a>
+    <a href="info.html" class="mobile-nav_link">INFO</a>
+    <a href="contact.html" class="mobile-nav_link is-active">
+      <span class="red-crochet">[</span>CONTACT<span class="red-crochet">]</span>
+    </a>
+  </nav>
 </body>
 
 </html>

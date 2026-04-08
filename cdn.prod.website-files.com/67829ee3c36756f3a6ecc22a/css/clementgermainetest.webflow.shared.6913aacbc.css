@@ -7404,3 +7404,194 @@ h1 {
     grid-area: span 1 / span 1 / span 1 / span 1;
   }
 }
+
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE REFACTOR - CUSTOM OVERRIDES
+   ══════════════════════════════════════════════════════════ */
+
+:root {
+  --fluid-h1: clamp(2.5rem, 10vw, 7rem);
+  --fluid-h2: clamp(1.8rem, 6vw, 4rem);
+  --mobile-nav-height: 70px;
+}
+
+/* Scroll Global */
+html, body {
+  overflow-x: hidden !important;
+  height: auto !important;
+}
+
+/* Typographie Fluide */
+.hero_title-dynamic {
+  font-size: var(--fluid-h1) !important;
+  line-height: 0.9 !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* Grille & Lignes */
+@media screen and (max-width: 991px) {
+  .lines_background {
+    display: none !important;
+  }
+}
+
+/* ═══ Bottom Navigation Mobile ═══ */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--mobile-nav-height);
+  background: rgba(10, 10, 10, 0.9);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 9999;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+@media screen and (max-width: 991px) {
+  .mobile-nav {
+    display: flex;
+  }
+  .navbar_component {
+    display: none !important;
+  }
+  /* Ajouter du padding au bas du wrapper pour ne pas cacher le contenu sous la nav bar */
+  .main-wrapper {
+    padding-bottom: var(--mobile-nav-height) !important;
+  }
+}
+
+.mobile-nav_link {
+  color: #888;
+  text-decoration: none;
+  font-family: 'Fragment Mono', monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12rem;
+  transition: color 0.2s ease;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2px;
+}
+
+.mobile-nav_link.is-active,
+.mobile-nav_link:hover {
+  color: #fff !important;
+}
+
+.mobile-nav_link .red-crochet {
+  color: #ff0028;
+  font-size: 0.8rem;
+}
+
+/* ═══ Stacking Grids ═══ */
+@media screen and (max-width: 991px) {
+  /* Home Projects Grid */
+  .projects_grid {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+    padding-bottom: 2rem !important;
+  }
+  
+  /* Info / Contact Hero Grid */
+  .hero_grid.hero-grid-info {
+    grid-template-columns: 1fr !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+  }
+  
+  /* Titres Hero adaptés */
+  .hero_heading-wrap {
+    grid-area: auto !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  /* Paragraphes / Formulaires adaptés */
+  .div_info_paragraph {
+    grid-area: auto !important;
+    width: 100% !important;
+  }
+  
+  /* Grille de liens contact */
+  .grid-4 {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.2rem !important;
+    margin-top: 1.5rem !important;
+  }
+  
+  /* Supprimer les colonnes vides du Grid-4 */
+  .grid-4 > div:empty {
+    display: none !important;
+  }
+
+  /* Ajuster le padding global sur mobile */
+  .padding-global {
+    padding-left: 5vw !important;
+    padding-right: 5vw !important;
+  }
+
+  /* Index specific fixes */
+  #w-node-_4aa53cde-1627-b271-ce7d-fa3fc990127c-a6ecc238 {
+    grid-area: auto !important;
+    margin-top: 1rem;
+    font-size: 0.75rem !important;
+  }
+  
+  /* Grid index components stacking */
+  .hero_grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1.5rem !important;
+  }
+
+  /* Info title overlap fix */
+  .hero_title-dynamic {
+    margin-bottom: 2rem !important;
+    position: relative !important;
+  }
+
+  /* Project Grid Cards Stacking */
+  .projects_grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 3rem !important;
+  }
+
+  .project_card {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .project_thumb-wrap {
+    height: 300px !important; /* Force une hauteur plus grande sur mobile */
+  }
+
+  /* Project Page Specific Stacking */
+  .project-hero-grid {
+    grid-template-columns: 1fr !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem;
+  }
+
+  .project-left-column {
+    position: relative !important;
+    top: 0 !important;
+    width: 100% !important;
+    z-index: 100 !important;
+  }
+
+  /* Contact Page adjustments */
+  .contact-form-wrapper {
+    margin-top: 1rem !important;
+  }
+}

@@ -144,101 +144,131 @@
   </style>
 
   <style>
-    /* Empêche complètement la barre de défilement (scroll) pour un fit à 100% écran */
+    /* ══════════════════════════════════════════════════════════
+       INFO PAGE - FINAL CONSOLIDATED STYLES
+       ══════════════════════════════════════════════════════════ */
+
     body {
-      overflow-y: hidden !important;
+      overflow-y: auto !important;
     }
 
-    /* Ancrer le flex layout pour éviter la redistribution d'espace - navbar reste en haut */
     .main-wrapper {
-      height: 100vh !important;
+      min-height: 100vh !important;
       display: flex !important;
       flex-direction: column !important;
       justify-content: flex-start !important;
       align-items: stretch !important;
     }
 
-    /* Aligne le haut de la navbar avec l'accueil (1rem au lieu de la valeur par défaut plus basse) */
+    /* Layout & Spacing */
     .navbar_inner {
       padding-top: 1rem !important;
     }
 
-    /* Décalage optique du logo pour l'aligner avec le titre principal (cohérence visuelle) */
     .navbar_brand {
       margin-left: 3px !important;
       letter-spacing: 0.1rem !important;
     }
 
-    /* Remonter la section entière pour qu'elle s'ajuste dans le viewport 100vh sans scroll */
+    #w-node-_05a183d2-80d5-0f30-a24c-45973f9b43ca-74abfd4b {
+      grid-area: 1 / 7 / 2 / 8 !important;
+    }
+
+    #w-node-ad307fa5-eefa-474a-e5fc-1e3dece3e7f5-74abfd4b {
+      grid-area: 1 / 8 / 2 / 9 !important;
+    }
+
+    #w-node-_4aa53cde-1627-b271-ce7d-fa3fc990127c-74abfd4b {
+      grid-area: 1 / 9 / 2 / 10 !important;
+    }
+
+    .navbar_inner .nav_link {
+      justify-self: start !important;
+      max-width: 100% !important;
+      white-space: nowrap !important;
+    }
+
     .padding-hero.padding-global {
-      padding-top: 2rem !important;
-      padding-bottom: 2.5rem !important;
+      padding-top: 1rem !important;
+      padding-bottom: 2rem !important;
     }
 
     .hero_grid.hero-grid-info {
       margin-top: 0px !important;
     }
 
-    /* Rétablit le titre INFO à une taille aérée sans chevaucher la navbar */
-    .hero_title-dynamic {
-      font-size: 6.2rem !important;
-      margin-top: 10px !important;
+    .hero_info-wrap {
+      grid-area: 1 / 7 / 2 / 10 !important;
+      margin-top: 0px !important;
     }
 
-    /* L'image reste à sa place naturelle, sous la navbar */
-    .hero_info-wrap {
+    .hero-grid-info .div_info_paragraph {
       margin-top: 0px !important;
+      max-width: 50rem;
+    }
+
+    .hero-grid-info .grid-4 {
+      grid-area: 2 / 7 / 3 / 10 !important;
+    }
+
+    /* Typography */
+    .hero_title-dynamic {
+      font-size: clamp(5.8rem, 9.6vw, 13.9rem) !important;
+      margin-top: 10px !important;
+      line-height: 0.9 !important;
+    }
+
+    .paragraph-info {
+      font-size: clamp(1.15rem, 1.3vw, 1.5rem) !important;
+      line-height: 1.4 !important;
     }
 
     .image-30 {
       max-height: 365px !important;
-      width: auto !important;
-      object-fit: contain !important;
+      width: 100% !important;
+      object-fit: cover !important;
     }
 
-    /* On remonte seulement le texte pour combler le vide avec le titre INFO */
-    .hero-grid-info .div_info_paragraph {
-      margin-top: -100px !important;
-    }
-
-    /* Retour à une esthétique aérée et lisible (1.25rem au lieu de 1.1) */
-    .paragraph-info {
-      font-size: 1.25rem !important;
-      line-height: 1.2 !important;
-    }
-
-    /* Padding équilibré pour un rendu "premium" et scroll-free */
-    .padding-hero.padding-global {
-      padding-top: 1rem !important;
-      padding-bottom: 2rem !important;
-    }
-
-    /* Rétablissement de l'air entre les liens de contact */
+    /* Contact Grid - Unified & Robust (Desktop: 2 columns, 2 rows) */
     .grid-4 {
-      row-gap: 25px !important;
+      display: grid !important;
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      grid-template-rows: auto !important;
+      row-gap: 0 !important;
+      column-gap: 1.3rem !important;
       margin-top: 30px !important;
+      overflow: visible !important;
     }
 
     .info_link-item {
-      padding-top: 5px !important;
-      padding-bottom: 5px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      padding: 5px 0 !important;
+      visibility: visible !important;
+      opacity: 1 !important;
     }
 
-    /* Alignement et espacement des blocs contact  */
+    .grid-4 .info_link-item:nth-child(1) {
+      grid-area: 1 / 1 / 2 / 2 !important;
+    }
+
+    .grid-4 .info_link-item:nth-child(2) {
+      grid-area: 1 / 2 / 2 / 3 !important;
+    }
+
+    .grid-4 .info_link-item:nth-child(3) {
+      grid-area: 1 / 1 / 2 / 2 !important;
+      margin-top: 74px !important;
+    }
+
     .info_link-top {
       display: flex !important;
       gap: 6px !important;
-      /* Espacement aéré pour un look premium */
       justify-content: flex-start !important;
       align-items: flex-start !important;
-      /* Alignement vers le haut du texte */
       text-decoration: none !important;
       color: inherit !important;
       height: 20px !important;
-      max-height: 20px !important;
-      min-height: 20px !important;
-      box-sizing: border-box !important;
-      /* Force une hauteur stricte pour aligner parfaitement le texte inférieur (Phone, E-mail, Linkedin) sur la même baseline */
     }
 
     .info_link-title,
@@ -250,41 +280,81 @@
 
     .info_link-title h3 {
       margin: 0 !important;
-      padding: 0 !important;
       line-height: 0.9 !important;
-      /* Tight line height to prevent the bounding box from pushing the arrow down */
     }
 
-    /* Transition "brute" pour un style plus technique */
     .contact-icon-svg {
       transition: transform 0.1s ease-out, color 0.1s ease-out !important;
       width: 20px !important;
-      /* Plus grand pour s'aligner sur la cap-height */
       height: 20px !important;
       color: white;
       position: relative !important;
       top: -1px !important;
-      /* Ajustement précis pour aligner le haut de la flèche avec le hat de la typo (cap height) */
     }
 
-    /* Ajustement spécifique pour l'icône Copy */
     .contact-icon-svg.copy-icon-svg {
       width: 16px !important;
       height: 16px !important;
       margin-left: 6px !important;
-      /* Ecarte l'icône du mot E-mail */
-      top: 1px !important;
-      /* Compense la réduction de taille pour rester aligné en haut */
+      top: -1px !important;
     }
 
-    /* Effet snappier au survol du bloc : la flèche saute en rouge #FF0028 */
     .info_link-item:hover .contact-icon-svg {
       transform: translate(3px, -3px);
       color: #FF0028 !important;
     }
 
-    /* WORK nav link — décalage gauche pour compenser l'espace des crochets invisibles */
-    .nav-link-work-info { transform: translateX(-4px) !important; }
+    /* NAV Link Offset */
+    .nav-link-work-info {
+      transform: none !important;
+    }
+
+    .nav-link-work-info .red-crochet-infos {
+      display: none !important;
+    }
+
+    /* MOBILE OVERRIDES (< 991px) */
+    @media screen and (max-width: 991px) {
+      .hero_grid.hero-grid-info {
+        gap: 3rem !important;
+      }
+
+      .image-30 {
+        margin-bottom: 1.5rem !important;
+      }
+
+      .grid-4 {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1rem !important;
+        padding-bottom: calc(var(--mobile-nav-height) + 2rem) !important;
+      }
+
+      .grid-4 .info_link-item:nth-child(3) {
+        grid-area: auto !important;
+        margin-top: 0 !important;
+      }
+
+      /* FORCE visibility for contact items on mobile */
+      .info_link-item.force-visible-mobile {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        min-height: 50px !important;
+      }
+
+      /* Reasonable safety padding */
+      .padding-hero.padding-global {
+        padding-bottom: 8rem !important;
+      }
+    }
+
+    @media screen and (max-width: 767px) {
+      .grid-4 {
+        gap: 0.75rem !important;
+        padding-bottom: calc(var(--mobile-nav-height) + 2.5rem) !important;
+      }
+    }
   </style>
 </head>
 
@@ -325,8 +395,8 @@
                 data-scramble="true" class="bold-text-6">CONTACT</strong></a>
             <div class="navbar_right">
               <div class="navbar_menu"><a href="#" class="nav_link"><strong class="red-crochet">[</strong>WORK<strong
-                    class="red-crochet">]</strong></a><a href="info.html" class="nav_link">INFO</a><a href="contact.html"
-                  class="nav_link">CONTACT</a></div>
+                    class="red-crochet">]</strong></a><a href="info.html" class="nav_link">INFO</a><a
+                  href="contact.html" class="nav_link">CONTACT</a></div>
             </div>
           </div>
         </div>
@@ -354,7 +424,6 @@
                   each project.</p>
               </div>
               <div id="w-node-_9d8e5b6a-baa7-4e2b-cfcf-1a88c1563772-74abfd4b" class="w-layout-grid grid-4">
-                <div></div>
                 <div id="w-node-b768936b-76de-6d11-758d-636389f9fe98-74abfd4b" class="info_link-item">
                   <a href="#" onclick="copyEmail(event)" class="info_link-top">
                     <div class="info_link-title">
@@ -403,8 +472,9 @@
                   <div class="info_link-value"><a data-scramble="true" href="tel:+33650727032"
                       class="info-content">+33650727032</a></div>
                 </div>
-                <div></div>
-                <div id="w-node-_9ab68a73-8cf9-a05b-51c3-b39853e9f74b-74abfd4b" class="info_link-item">
+                <div id="w-node-_9ab68a73-8cf9-a05b-51c3-b39853e9f74b-74abfd4b"
+                  class="info_link-item force-visible-mobile"
+                  style="display: flex !important; visibility: visible !important; opacity: 1 !important;">
                   <a href="https://www.linkedin.com/in/clément-germaine-677971250" target="_blank"
                     class="info_link-top">
                     <div class="info_link-title">
@@ -733,6 +803,14 @@
       });
     });
   </script>
+  <!-- Navigation Mobile (Bottom Nav) -->
+  <nav class="mobile-nav">
+    <a href="index.html" class="mobile-nav_link">WORK</a>
+    <a href="info.html" class="mobile-nav_link is-active">
+      <span class="red-crochet">[</span>INFO<span class="red-crochet">]</span>
+    </a>
+    <a href="contact.html" class="mobile-nav_link">CONTACT</a>
+  </nav>
 </body>
 <!-- Mirrored from clementgermainetest.webflow.io/info by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 27 Mar 2026 08:25:33 GMT -->
 

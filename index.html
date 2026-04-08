@@ -143,9 +143,9 @@
   </style>
 
   <style>
-    /* Empêche complètement la barre de défilement (scroll) pour un fit à 100% écran */
+    /* Autorise le défilement vertical pour le responsive */
     body {
-      overflow-y: hidden !important;
+      overflow-y: auto !important;
     }
 
     .project_card .custom-hover-text {
@@ -172,8 +172,11 @@
       color: #ff0028 !important;
     }
 
-    /* Ancrer le flex layout pour éviter la redistribution d'espace - navbar reste en haut */
+    /* Layout flexible : min-height au lieu de height fixe */
     .main-wrapper {
+      min-height: 100vh !important;
+      display: flex !important;
+      flex-direction: column !important;
       justify-content: flex-start !important;
       align-items: stretch !important;
     }
@@ -186,6 +189,13 @@
     /* Décalage optique du logo pour qu'il s'aligne visuellement avec le gros titre du dessous */
     .navbar_brand {
       margin-left: 3px !important;
+      letter-spacing: 0.1rem !important;
+    }
+
+    .navbar_inner .nav_link {
+      justify-self: start !important;
+      max-width: 100% !important;
+      white-space: nowrap !important;
     }
 
     /* Remonter la section projets pour qu'elle soit entièrement visible dans le viewport */
@@ -196,6 +206,80 @@
     /* Décaler légèrement les textes du hero pour éviter le chevauchement avec la ligne d'arrière-plan */
     .hero_meta {
       transform: translateX(3px) !important;
+    }
+
+    .project_thumb-picture {
+      display: block !important;
+      width: 100% !important;
+    }
+
+    @media screen and (max-width: 991px) {
+      .padding-hero.padding-global {
+        padding-top: calc(0.5rem + 50px) !important;
+      }
+
+      .hero_grid {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) auto !important;
+        column-gap: 1.5rem !important;
+        row-gap: clamp(4.5rem, 10vw, 6.25rem) !important;
+        align-items: start !important;
+        width: fit-content !important;
+        max-width: 100% !important;
+        margin-top: 0 !important;
+      }
+
+      .hero_heading-wrap {
+        grid-column: 1 / -1 !important;
+        grid-row: 1 !important;
+        margin-bottom: 0 !important;
+      }
+
+      .hero_heading-wrap .hero_title-dynamic {
+        font-size: clamp(4.6rem, 14vw, 8.15rem) !important;
+        margin-bottom: 0.75rem !important;
+      }
+
+      .hero_heading-wrap .button-3 {
+        margin-top: 0 !important;
+      }
+
+      #w-node-_4c4f816a-298f-fab6-a088-b0758195401f-53866636 {
+        grid-column: 1 / 2 !important;
+        grid-row: 2 !important;
+        justify-self: start !important;
+        align-self: start !important;
+        margin-left: 8px !important;
+      }
+
+      #w-node-_66a6abde-2628-9319-8875-ee86edd44167-53866636 {
+        grid-column: 2 / 3 !important;
+        grid-row: 2 !important;
+        justify-self: end !important;
+        align-self: start !important;
+      }
+
+      .hero_meta {
+        transform: none !important;
+      }
+
+      .section_home-projects {
+        margin-top: -50px !important;
+      }
+
+      .projects_grid {
+        gap: calc(3rem - 15px) !important;
+      }
+
+      .project_thumb-wrap {
+        height: auto !important;
+      }
+
+      .project_thumb {
+        width: 100% !important;
+        height: auto !important;
+        display: block !important;
+      }
     }
   </style>
 </head>
@@ -265,9 +349,17 @@
           <div class="w-layout-grid projects_grid projects_list"><a data-title="FIELD TEST ENGINEER"
               id="w-node-ec9cad78-6b9d-6895-d9ba-5a0fbb28c282-53866636" data-w-id="ec9cad78-6b9d-6895-d9ba-5a0fbb28c282"
               href="project-01.html" class="project_card w-inline-block">
-              <div class="project_thumb-wrap"><img
-                  src="cdn.prod.website-files.com/67829ee3c36756f3a6ecc22a/696a3d21f0c4d94f716dd59a_Rectangle%2054.png"
-                  loading="lazy" alt="" class="project_thumb" /></div>
+              <div class="project_thumb-wrap">
+                <picture class="project_thumb-picture">
+                  <img
+                    src="cdn.prod.website-files.com/67829ee3c36756f3a6ecc22a/696a3d21f0c4d94f716dd59a_Rectangle%2054.png"
+                    loading="lazy"
+                    decoding="async"
+                    sizes="(max-width: 991px) 90vw, (max-width: 1440px) 48vw, 32vw"
+                    alt=""
+                    class="project_thumb" />
+                </picture>
+              </div>
               <div class="w-layout-hflex flex-block-8">
                 <div class="project_index"><strong data-w-id="27532738-af7b-a407-35fb-dab006d25aee">[</strong>01<strong
                     data-w-id="88023d21-b404-f5db-ba56-9f8b5095912a">]</strong></div>
@@ -276,9 +368,17 @@
               </div>
             </a><a data-title="WELLIOT" id="w-node-_703f0f0a-4270-279b-94d7-5c69de919728-53866636"
               data-w-id="703f0f0a-4270-279b-94d7-5c69de919728" href="#" class="project_card w-inline-block">
-              <div class="project_thumb-wrap"><img
-                  src="cdn.prod.website-files.com/67829ee3c36756f3a6ecc22a/696a3df8a248306c3c3fd4a7_Rectangle%2055.png"
-                  loading="lazy" alt="" class="project_thumb" /></div>
+              <div class="project_thumb-wrap">
+                <picture class="project_thumb-picture">
+                  <img
+                    src="cdn.prod.website-files.com/67829ee3c36756f3a6ecc22a/696a3df8a248306c3c3fd4a7_Rectangle%2055.png"
+                    loading="lazy"
+                    decoding="async"
+                    sizes="(max-width: 991px) 90vw, (max-width: 1440px) 48vw, 32vw"
+                    alt=""
+                    class="project_thumb" />
+                </picture>
+              </div>
               <div class="w-layout-hflex flex-block-9">
                 <div class="project_index"><strong>[</strong>02<strong>]</strong></div>
                 <div data-w-id="14eb520d-e52a-69d3-f100-5b48cf776bd4" style="opacity:0" class="text-block-12">VIEW
@@ -286,11 +386,18 @@
               </div>
             </a><a data-title="COCO RESTAURANT" id="w-node-_194079be-285a-0cd8-0a11-6b4aaf8082a0-53866636" href="#"
               class="project_card w-inline-block">
-              <div class="project_thumb-wrap"><img
-                  src="cdn.prod.website-files.com/67829ee3c36756f3a6ecc22a/696a520a701cbfa427161199_Rectangle%2056.png"
-                  loading="lazy" sizes="(max-width: 504px) 100vw, 504px, 100vw"
-                  srcset="https://cdn.prod.website-files.com/67829ee3c36756f3a6ecc22a/696a520a701cbfa427161199_Rectangle%2056-p-500.png 500w, https://cdn.prod.website-files.com/67829ee3c36756f3a6ecc22a/696a520a701cbfa427161199_Rectangle%2056.png 504w"
-                  alt="" class="project_thumb" /></div>
+              <div class="project_thumb-wrap">
+                <picture class="project_thumb-picture">
+                  <img
+                    src="cdn.prod.website-files.com/67829ee3c36756f3a6ecc22a/696a520a701cbfa427161199_Rectangle%2056.png"
+                    loading="lazy"
+                    decoding="async"
+                    sizes="(max-width: 991px) 90vw, (max-width: 1440px) 48vw, 32vw"
+                    srcset="https://cdn.prod.website-files.com/67829ee3c36756f3a6ecc22a/696a520a701cbfa427161199_Rectangle%2056-p-500.png 500w, https://cdn.prod.website-files.com/67829ee3c36756f3a6ecc22a/696a520a701cbfa427161199_Rectangle%2056.png 504w"
+                    alt=""
+                    class="project_thumb" />
+                </picture>
+              </div>
               <div class="w-layout-hflex flex-block-9">
                 <div class="project_index"><strong>[</strong>03<strong>]</strong></div>
                 <div class="text-block-12 custom-hover-text">VIEW PROJECT --&gt;</div>
@@ -300,9 +407,16 @@
               <div class="project_thumb-wrap">
                 <div class="div-block-31 overlay-coming">
                   <div class="text-block-10">coming soon</div>
-                </div><img
-                  src="cdn.prod.website-files.com/67829ee3c36756f3a6ecc22a/696a3df8a248306c3c3fd4a7_Rectangle%2055.png"
-                  loading="lazy" alt="" class="project_thumb" />
+                </div>
+                <picture class="project_thumb-picture">
+                  <img
+                    src="cdn.prod.website-files.com/67829ee3c36756f3a6ecc22a/696a3df8a248306c3c3fd4a7_Rectangle%2055.png"
+                    loading="lazy"
+                    decoding="async"
+                    sizes="(max-width: 991px) 90vw, (max-width: 1440px) 48vw, 32vw"
+                    alt=""
+                    class="project_thumb" />
+                </picture>
               </div>
               <div class="w-layout-hflex flex-block-9">
                 <div class="project_index"><strong>[</strong>04<strong>]</strong></div>
@@ -313,9 +427,16 @@
               <div class="project_thumb-wrap">
                 <div class="overlay-coming">
                   <div class="text-block-10">Coming soon </div>
-                </div><img
-                  src="cdn.prod.website-files.com/67829ee3c36756f3a6ecc22a/696a3df8a248306c3c3fd4a7_Rectangle%2055.png"
-                  loading="lazy" alt="" class="project_thumb" />
+                </div>
+                <picture class="project_thumb-picture">
+                  <img
+                    src="cdn.prod.website-files.com/67829ee3c36756f3a6ecc22a/696a3df8a248306c3c3fd4a7_Rectangle%2055.png"
+                    loading="lazy"
+                    decoding="async"
+                    sizes="(max-width: 991px) 90vw, (max-width: 1440px) 48vw, 32vw"
+                    alt=""
+                    class="project_thumb" />
+                </picture>
               </div>
               <div class="w-layout-hflex flex-block-9">
                 <div class="project_index"><strong>[</strong>05<strong>]</strong></div>
@@ -615,6 +736,14 @@
       }
     });
   </script>
+  <!-- Navigation Mobile (Bottom Nav) -->
+  <nav class="mobile-nav">
+    <a href="index.html" class="mobile-nav_link">
+      <span class="red-crochet">[</span>WORK<span class="red-crochet">]</span>
+    </a>
+    <a href="info.html" class="mobile-nav_link">INFO</a>
+    <a href="contact.html" class="mobile-nav_link">CONTACT</a>
+  </nav>
 </body>
 <!-- Mirrored from clementgermainetest.webflow.io/portfollio by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 27 Mar 2026 08:11:50 GMT -->
 
