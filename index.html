@@ -216,13 +216,14 @@
     @media screen and (max-width: 991px) {
       .padding-hero.padding-global {
         padding-top: calc(0.5rem + 50px) !important;
+        padding-bottom: 3rem !important;
       }
 
       .hero_grid {
         display: grid !important;
         grid-template-columns: minmax(0, 1fr) auto !important;
         column-gap: 1.5rem !important;
-        row-gap: clamp(4.5rem, 10vw, 6.25rem) !important;
+        row-gap: clamp(2.75rem, 7vw, 4.5rem) !important;
         align-items: start !important;
         width: fit-content !important;
         max-width: 100% !important;
@@ -237,11 +238,12 @@
 
       .hero_heading-wrap .hero_title-dynamic {
         font-size: clamp(4.6rem, 14vw, 8.15rem) !important;
-        margin-bottom: 0.75rem !important;
+        margin-bottom: 0.35rem !important;
       }
 
       .hero_heading-wrap .button-3 {
         margin-top: 0 !important;
+        transform: translateY(-4px) !important;
       }
 
       #w-node-_4c4f816a-298f-fab6-a088-b0758195401f-53866636 {
@@ -264,7 +266,7 @@
       }
 
       .section_home-projects {
-        margin-top: -50px !important;
+        margin-top: -18px !important;
       }
 
       .projects_grid {
@@ -279,6 +281,48 @@
         width: 100% !important;
         height: auto !important;
         display: block !important;
+      }
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 991px) {
+      .padding-hero.padding-global {
+        padding-bottom: 3.75rem !important;
+      }
+
+      .hero_grid {
+        row-gap: clamp(3.25rem, 6vw, 4.25rem) !important;
+      }
+
+      .section_home-projects {
+        margin-top: -20px !important;
+      }
+    }
+
+    @media screen and (max-width: 767px) {
+      .padding-hero.padding-global {
+        padding-bottom: 4rem !important;
+      }
+
+      .hero_grid {
+        row-gap: 4.2rem !important;
+        column-gap: 1rem !important;
+      }
+
+      .hero_heading-wrap .hero_title-dynamic {
+        margin-bottom: 0.2rem !important;
+      }
+
+      .hero_heading-wrap .button-3 {
+        transform: translateY(-6px) !important;
+      }
+
+      #w-node-_4c4f816a-298f-fab6-a088-b0758195401f-53866636,
+      #w-node-_66a6abde-2628-9319-8875-ee86edd44167-53866636 {
+        align-self: start !important;
+      }
+
+      .section_home-projects {
+        margin-top: 0 !important;
       }
     }
   </style>
