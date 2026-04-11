@@ -396,7 +396,7 @@
               <div class="project_thumb-wrap">
                 <picture class="project_thumb-picture">
                   <img
-                    src="cdn.prod.website-files.com/67829ee3c36756f3a6ecc22a/696a3d21f0c4d94f716dd59a_Rectangle%2054.png"
+                    src="Cover-main-page/Cover-project01.png"
                     loading="lazy"
                     decoding="async"
                     sizes="(max-width: 991px) 90vw, (max-width: 1440px) 48vw, 32vw"
@@ -410,12 +410,14 @@
                 <div data-w-id="244d21c6-4c00-7a40-e4f5-d3b393b09cd2" style="opacity:0" class="text-block-12">VIEW
                   PROJECT --&gt;</div>
               </div>
-            </a><a data-title="WELLIOT" id="w-node-_703f0f0a-4270-279b-94d7-5c69de919728-53866636"
+            </a><a data-title="MAMMA MIA!" id="w-node-_703f0f0a-4270-279b-94d7-5c69de919728-53866636"
               data-w-id="703f0f0a-4270-279b-94d7-5c69de919728" href="#" class="project_card w-inline-block">
               <div class="project_thumb-wrap">
                 <picture class="project_thumb-picture">
                   <img
-                    src="cdn.prod.website-files.com/67829ee3c36756f3a6ecc22a/696a3df8a248306c3c3fd4a7_Rectangle%2055.png"
+                    src="Cover-main-page/Cover-project02.png"
+                    data-default-src="Cover-main-page/Cover-project02.png"
+                    data-hover-src="Cover-main-page/Cover-project02-hover.png"
                     loading="lazy"
                     decoding="async"
                     sizes="(max-width: 991px) 90vw, (max-width: 1440px) 48vw, 32vw"
@@ -428,16 +430,16 @@
                 <div data-w-id="14eb520d-e52a-69d3-f100-5b48cf776bd4" style="opacity:0" class="text-block-12">VIEW
                   PROJECT --&gt;</div>
               </div>
-            </a><a data-title="COCO RESTAURANT" id="w-node-_194079be-285a-0cd8-0a11-6b4aaf8082a0-53866636" href="#"
+            </a><a data-title="WELLIOT" id="w-node-_194079be-285a-0cd8-0a11-6b4aaf8082a0-53866636" href="#"
               class="project_card w-inline-block">
               <div class="project_thumb-wrap">
                 <picture class="project_thumb-picture">
                   <img
-                    src="cdn.prod.website-files.com/67829ee3c36756f3a6ecc22a/696a520a701cbfa427161199_Rectangle%2056.png"
+                    src="Cover-main-page/Cover-project03.png"
                     loading="lazy"
                     decoding="async"
                     sizes="(max-width: 991px) 90vw, (max-width: 1440px) 48vw, 32vw"
-                    srcset="https://cdn.prod.website-files.com/67829ee3c36756f3a6ecc22a/696a520a701cbfa427161199_Rectangle%2056-p-500.png 500w, https://cdn.prod.website-files.com/67829ee3c36756f3a6ecc22a/696a520a701cbfa427161199_Rectangle%2056.png 504w"
+                    srcset="Cover-main-page/Cover-project03.png 1600w"
                     alt=""
                     class="project_thumb" />
                 </picture>
@@ -446,15 +448,12 @@
                 <div class="project_index"><strong>[</strong>03<strong>]</strong></div>
                 <div class="text-block-12 custom-hover-text">VIEW PROJECT --&gt;</div>
               </div>
-            </a><a data-title="COMING SOON" id="w-node-_8d22d5d3-35d9-bdba-6e9a-d5590282d19b-53866636" href="#"
+            </a><a data-title="COCO RESTAURANT" id="w-node-_8d22d5d3-35d9-bdba-6e9a-d5590282d19b-53866636" href="#"
               class="project_card w-inline-block">
               <div class="project_thumb-wrap">
-                <div class="div-block-31 overlay-coming">
-                  <div class="text-block-10">coming soon</div>
-                </div>
                 <picture class="project_thumb-picture">
                   <img
-                    src="cdn.prod.website-files.com/67829ee3c36756f3a6ecc22a/696a3df8a248306c3c3fd4a7_Rectangle%2055.png"
+                    src="Cover-main-page/Cover-project04.png"
                     loading="lazy"
                     decoding="async"
                     sizes="(max-width: 991px) 90vw, (max-width: 1440px) 48vw, 32vw"
@@ -713,6 +712,35 @@
           card.addEventListener("focusout", clearStates);
         });
       }
+
+      const hoverSwapImages = document.querySelectorAll("img[data-hover-src]");
+
+      hoverSwapImages.forEach((img) => {
+        const defaultSrc = img.getAttribute("data-default-src") || img.getAttribute("src");
+        const hoverSrc = img.getAttribute("data-hover-src");
+        const card = img.closest(".project_card");
+
+        if (!defaultSrc || !hoverSrc) return;
+
+        const preload = new Image();
+        preload.src = hoverSrc;
+
+        const showDefault = () => {
+          img.src = defaultSrc;
+        };
+
+        const showHover = () => {
+          img.src = hoverSrc;
+        };
+
+        img.addEventListener("mouseenter", showHover);
+        img.addEventListener("mouseleave", showDefault);
+
+        if (card) {
+          card.addEventListener("focusin", showHover);
+          card.addEventListener("focusout", showDefault);
+        }
+      });
 
 
       // --- 3. SCRAMBLE DES LIENS DE NAVIGATION ---
